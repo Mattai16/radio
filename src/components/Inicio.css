@@ -1,0 +1,56 @@
+.redes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.redes a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
+
+.redes a:hover {
+  transform: scale(1.2);
+}
+
+.redes a:first-child {
+  
+}
+
+.redes a:nth-child(2) {
+  
+}
+
+.redes a:nth-child(3) {
+  
+}
+
+.redes a:nth-child(4) {
+  
+}
+
+.redes a:last-child {
+  
+}
+
+.Inicio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.Inicio audio {
+  width: 300px;
+  height: 50px;
+  margin-top: 1px;
+  align-items: center;
+}
