@@ -9,6 +9,8 @@ import Programa from "./components/Programa";
 import Tienda from "./components/Tienda"; 
 import Show from "./components/Show";
 import Edit from "./components/Edit";
+import CreatePrograma from "./components/CreatePrograma";
+import EditPrograma from "./components/EditPrograma";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,15 @@ const router = createBrowserRouter([
   {
     path: '/edit/:id',
     element: <Edit/>
+  },
+
+  {
+    path: '/createprograma',
+    element: <CreatePrograma/>
+  },
+  {
+    path: '/editprograma/:id',
+    element: <EditPrograma/>
   },
 ])
 
