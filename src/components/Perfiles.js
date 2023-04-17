@@ -6,7 +6,6 @@ const Perfiles = () =>{
     return(
         
         <div>
-            
             <Menu />
             <Show/>
         </div>  
