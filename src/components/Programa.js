@@ -1,11 +1,12 @@
 import React from "react";
 import Menu from "./Menu";
+import ShowPrograma from './ShowPrograma'
 
 const Programa = () => {
     return(
         <div>
             <Menu />
-            <h1>Hola programa</h1>
+            <ShowPrograma/>
            
         </div>
     )
