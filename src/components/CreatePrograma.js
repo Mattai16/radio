@@ -77,7 +77,8 @@ const CreatePrograma = () => {
                     onChange = {(e)=> setInvolucrados(e.target.value)} type="text" placeholder="Introduce el nombre del involucrado" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
-                
+
+
                 </Form.Group>
                 <button className="btn btn-dark flex-grow-1" type="submit">
                     Enviar
