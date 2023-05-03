@@ -1,7 +1,7 @@
 import React from "react";
-import Menu from "./Menu";
+import Menu from "../components/Menu";
 
-import ShowPrograma from './ShowPrograma'
+import ShowPrograma from '../components/ShowPrograma'
 
 const Programa = () => {
     return(

@@ -1,6 +1,6 @@
 import React from "react";
-import Edit from "./Edit";
-import Menu from "./Menu";
+import Edit from "../components/Edit";
+import Menu from "../components/Menu";
 
 const Tienda = () =>{
     return(

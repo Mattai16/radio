@@ -1,12 +1,12 @@
 import React from "react";
-import Menu from "./Menu";
+import Menu from "../components/Menu";
 import './Inicio.css';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTiktok, faYoutube, faTwitter, faInstagram  } from '@fortawesome/free-brands-svg-icons';
 import { Button } from 'react-bootstrap';
-import AlbumStack from "./AlbumStack";
-import Create from "./Create";
+import AlbumStack from "../components/AlbumStack";
+import Create from "../components/Create";
 import { Form } from "react-bootstrap";
 
 const Inicio = () => {
