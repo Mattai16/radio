@@ -1,8 +1,10 @@
 import React from "react";
 import Menu from "./Menu";
 import './Inicio.css';
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTiktok, faYoutube, faTwitter, faInstagram  } from '@fortawesome/free-brands-svg-icons';
+import { Button } from 'react-bootstrap';
 import AlbumStack from "./AlbumStack";
 import Create from "./Create";
 import { Form } from "react-bootstrap";
@@ -26,7 +28,12 @@ const Inicio = () => {
                 <a href="https://twitter.com"><FontAwesomeIcon icon={faTwitter} size="2xl"style={{color: "#1da1f3",}} /></a>
                 <a href="https://www.facebook.com"><FontAwesomeIcon icon={faFacebook} size="2xl" style={{color: "#4267b2",}} /></a>
                 <a href="https://www.tiktok.com"><FontAwesomeIcon icon={faTiktok} size="2xl" style={{color: "#000000"}}  /></a>
+
+               
            </div>
+
+           <Link to={'/SolicitudCancion'} className="btn btn-dark flex-grow-1">Solicitud Cancion</Link>
+           
         </div>
 
         
