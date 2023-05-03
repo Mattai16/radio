@@ -11,6 +11,8 @@ import Show from "./components/Show";
 import Edit from "./components/Edit";
 import CreatePrograma from "./components/CreatePrograma";
 import EditPrograma from "./components/EditPrograma";
+import Create from "./components/Create";
+
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
   {
     path: '/editprograma/:id',
     element: <EditPrograma/>
+  },
+  {
+    path: '/create',
+    element: <Create/>
   },
 ])
 
