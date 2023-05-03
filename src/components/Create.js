@@ -49,10 +49,8 @@ const Create = () => {
                     value={papel}
                     onChange = {(e)=> setPapel(e.target.value)} type="text" placeholder="Introduce el papel (Locutor o DJ)" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
 
-
-                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
                 <button className="btn btn-dark flex-grow-1" type="submit">
                     Enviar
                 </button>
