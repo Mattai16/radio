@@ -17,7 +17,7 @@ const SolicitudCancion = () => {
 
     const canciones = async (e) => {
         e.preventDefault()
-        await addDoc(programaCollection, { titulo: titulo, artista: artista })
+        await addDoc(CancionCollection, { titulo: titulo, artista: artista })
         navigate('/')
     }
 
