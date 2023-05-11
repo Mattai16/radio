@@ -12,6 +12,7 @@ import Edit from "./components/Edit";
 import CreatePrograma from "./components/CreatePrograma";
 import EditPrograma from "./components/EditPrograma";
 import SolicitudCancion from "./components/SolicitudCancion";
+import Create from "./components/Create";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: '/SolicitudCancion',
     element: <SolicitudCancion/>
+  },
+  {
+    path: '/create',
+    element: <Create/>
   },
 ])
 
