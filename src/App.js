@@ -13,6 +13,12 @@ import CreatePrograma from "./components/CreatePrograma";
 import EditPrograma from "./components/EditPrograma";
 import SolicitudCancion from "./components/SolicitudCancion";
 import Create from "./components/Create";
+import EditProducto from "./components/EditProducto";
+import ShowPerilAdmin from "./components/ShowPerfilAdmin";
+import ShowPrograma from "./components/ShowPrograma";
+import ShowProgramaAdmin from "./components/ShowProgramaAdmin";
+import ShowProductoAdmin from "./components/ShowProductoAdmin";
+
 
 const router = createBrowserRouter([
   {
@@ -37,12 +43,31 @@ const router = createBrowserRouter([
   },
 
   {
+    path: '/perfilesAdmin',
+    element: <ShowPerilAdmin/>
+  },
+
+  {
+    path: '/tiendaAdmin',
+    element: <ShowProductoAdmin/>
+  },
+
+  {
+    path: '/programaAdmin',
+    element: <ShowProgramaAdmin/>
+  },
+
+  {
     path: '/createprograma',
     element: <CreatePrograma/>
   },
   {
     path: '/editprograma/:id',
     element: <EditPrograma/>
+  },
+  {
+    path: '/editproducto/:id',
+    element: <EditProducto/>
   },
   {
     path: '/SolicitudCancion',

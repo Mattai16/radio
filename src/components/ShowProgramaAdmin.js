@@ -7,26 +7,27 @@ import { db } from './firebaseConfig/firebase'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import Header from './Header';
 const MySawl = withReactContent(Swal)
 
-const Show = () => {
+const ShowProgramaAdmin = () => {
 
-    const [perfiles, setPerfiles] = useState([])
+    const [programa, setPrograma] = useState([])
 
-    const perfilesCollection = collection(db, "perfiles")
+    const programaCollection = collection(db, "programas")
 
-    const getPerfiles = async () => {
-        const data = await getDocs(perfilesCollection)
+    const getPrograma = async () => {
+        const data = await getDocs(programaCollection)
         /* console.log(data) */
-        setPerfiles(
+        setPrograma(
             data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
         )
-        console.log(perfiles)
+        console.log(programa)
     }
 
     const confirmDelete = (id) => {
         MySawl.fire({
-            title: 'Estas seguro de eliminar el perfil?',
+            title: 'Estas seguro de eliminar el programa?',
             text: "No podras recuperar los datos",
             icon: 'warning',
             showCancelButton: true,
@@ -35,7 +36,7 @@ const Show = () => {
             confirmButtonText: 'Sí, eliminalo'
           }).then((result) => {
             if (result.isConfirmed) {
-                deletePerfil(id)
+                deletePrograma(id)
               Swal.fire(
                 'Deleted!',
                 'Ha sido borrado.',
@@ -45,23 +46,26 @@ const Show = () => {
           })
     }
 
-    const deletePerfil = async (id) => {
-        const perfilesDoc = doc(db, "perfiles", id)
-        await deleteDoc(perfilesDoc)
-        getPerfiles()
+    const deletePrograma = async (id) => {
+        const programaDoc = doc(db, "programas", id)
+        await deleteDoc(programaDoc)
+        getPrograma()
     }
 
     useEffect(() => {
-        getPerfiles()
+        getPrograma()
     }, [])
 
     return (
         <>
-            <div className="vh-100">
+
+        <Header/>
+
+            <div className="vh-100" style={{ backgroundColor: '#E7F6F2' }}>
                 <MDBContainer>
 
-                    { perfiles.map( (perfil) =>(
-                                <MDBRow className="justify-content-center" key={perfil.id}>
+                    { programa.map( (programa) =>(
+                                <MDBRow className="justify-content-center" key={programa.id}>
                                 <MDBCol md="9" lg="7" xl="5" className="mt-5">
                                     <MDBCard style={{ borderRadius: '0px' }}>
                                         <MDBCardBody className="p-4">
@@ -74,18 +78,18 @@ const Show = () => {
                                                         fluid />
                                                 </div>
                                                 <div className="flex-grow-1 ms-3">
-                                                    <h3> {perfil.nombre}</h3>
-                                                    <p>{perfil.papel}</p>
+                                                    <h3> {programa.titulo}</h3>
+                                                    <p>{programa.desc}</p>
                                                     <div className="d-flex justify-content-start rounded-3 p-2 mb-2"
                                                         style={{ backgroundColor: '#efefef' }}>
         
                                                         <div>
-                                                            {perfil.desc}
+                                                            {programa.horario}
                                                         </div>
                                                     </div>
                                                     <div className="d-flex pt-2">
-                                                        {/* <Link to={`/edit/${perfil.id}`} outline className="btn btn-outline-secondary me-1 flex-grow-1">Editar</Link> */}
-                                                        {/* <button onClick={()=> confirmDelete(perfil.id)} className="btn btn-dark flex-grow-1">Eliminar</button> */}
+                                                        <Link to={`/editprograma/${programa.id}`} outline className="btn btn-outline-secondary me-1 flex-grow-1">Editar</Link>
+                                                        <button onClick={()=> confirmDelete(programa.id)} className="btn btn-dark flex-grow-1">Eliminar</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -95,9 +99,8 @@ const Show = () => {
                             </MDBRow>
                     ))}
 
-                {/* <Link to={'/create'} className="btn btn-dark flex-grow-1">Crear</Link> */}
+                <Link to={'/createprograma'} className="btn btn-dark flex-grow-1">Crear</Link>
                 </MDBContainer>
-                
             </div>
 
 
@@ -105,4 +108,4 @@ const Show = () => {
     )
 }
 
-export default Show
+export default ShowProgramaAdmin

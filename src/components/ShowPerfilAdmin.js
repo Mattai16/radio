@@ -7,9 +7,10 @@ import { db } from './firebaseConfig/firebase'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import Header from './Header';
 const MySawl = withReactContent(Swal)
 
-const Show = () => {
+const ShowPerilAdmin = () => {
 
     const [perfiles, setPerfiles] = useState([])
 
@@ -57,6 +58,10 @@ const Show = () => {
 
     return (
         <>
+
+        <Header/>
+
+        
             <div className="vh-100">
                 <MDBContainer>
 
@@ -84,8 +89,8 @@ const Show = () => {
                                                         </div>
                                                     </div>
                                                     <div className="d-flex pt-2">
-                                                        {/* <Link to={`/edit/${perfil.id}`} outline className="btn btn-outline-secondary me-1 flex-grow-1">Editar</Link> */}
-                                                        {/* <button onClick={()=> confirmDelete(perfil.id)} className="btn btn-dark flex-grow-1">Eliminar</button> */}
+                                                        <Link to={`/edit/${perfil.id}`} outline className="btn btn-outline-secondary me-1 flex-grow-1">Editar</Link>
+                                                        <button onClick={()=> confirmDelete(perfil.id)} className="btn btn-dark flex-grow-1">Eliminar</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -95,7 +100,7 @@ const Show = () => {
                             </MDBRow>
                     ))}
 
-                {/* <Link to={'/create'} className="btn btn-dark flex-grow-1">Crear</Link> */}
+                <Link to={'/create'} className="btn btn-dark flex-grow-1">Crear</Link>
                 </MDBContainer>
                 
             </div>
@@ -105,4 +110,4 @@ const Show = () => {
     )
 }
 
-export default Show
+export default ShowPerilAdmin

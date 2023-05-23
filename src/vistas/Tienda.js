@@ -1,6 +1,8 @@
 import React from "react";
 import Edit from "../components/Edit";
 import Menu from "../components/Menu";
+import ShowProducto from "../components/ShowProducto"
+
 
 const Tienda = () =>{
     return(
@@ -8,7 +10,7 @@ const Tienda = () =>{
         <div>
             
             <Menu />
-            <h1>Hola tienda</h1>
+            <ShowProducto/>
             
         </div>  
     )

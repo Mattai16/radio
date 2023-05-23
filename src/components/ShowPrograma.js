@@ -84,8 +84,8 @@ const ShowPrograma = () => {
                                                         </div>
                                                     </div>
                                                     <div className="d-flex pt-2">
-                                                        <Link to={`/editprograma/${programa.id}`} outline className="btn btn-outline-secondary me-1 flex-grow-1">Editar</Link>
-                                                        <button onClick={()=> confirmDelete(programa.id)} className="btn btn-dark flex-grow-1">Eliminar</button>
+                                                        {/* <Link to={`/editprograma/${programa.id}`} outline className="btn btn-outline-secondary me-1 flex-grow-1">Editar</Link> */}
+                                                        {/* <button onClick={()=> confirmDelete(programa.id)} className="btn btn-dark flex-grow-1">Eliminar</button> */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -95,7 +95,7 @@ const ShowPrograma = () => {
                             </MDBRow>
                     ))}
 
-                <Link to={'/createprograma'} className="btn btn-dark flex-grow-1">Crear</Link>
+                {/* <Link to={'/createprograma'} className="btn btn-dark flex-grow-1">Crear</Link> */}
                 </MDBContainer>
             </div>
 

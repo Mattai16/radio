@@ -1,11 +1,41 @@
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { getAuth, signInAnonymously, } from "firebase/auth"
+import { messaging } from './firebaseConfig/firebase';
+import { getToken, onMessage } from "firebase/messaging";
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
-import {  BrowserRouter ,Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 
 
 export default function Header() {
+
+
+    const loguearse = () => {
+        signInAnonymously(getAuth()).then(usuario => console.log(usuario));
+
+    }
+
+    const activarMsj = async () => {
+        const token = await getToken(messaging, {
+            vapidKey: "BPQlcKyIvPTczBcJtBUNezD6eL17HFCQo4LmpDPkCjd8rXlPD6y3nRWhbBU4PdZSh4dTlJ2hK1Ef9ZAQxwaqUsg"
+        }).catch(error => console.log("Error al generar token"));
+
+        if (token) console.log("Token generado:", token);
+        if (!token) console.log("Token no generado");
+
+    }
+
+
+    React.useEffect(() => {
+        onMessage(messaging, message => {
+            console.log("Tú msj");
+            toast(message.notification.title);
+        })
+    })
 
 
 
@@ -34,7 +64,9 @@ export default function Header() {
                         </li>
                     </ul>
                     <span className="navbar-text">
-                        Equipo 7
+                        <ToastContainer />
+                        <button onClick={loguearse} className="btn btn-dark flex-grow-1">Registrarse</button>
+                        <button onClick={activarMsj} className="btn btn-dark flex-grow-1">Recibir notification</button>
                     </span>
                 </div>
             </div>

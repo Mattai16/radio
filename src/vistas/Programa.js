@@ -7,11 +7,10 @@ const Programa = () => {
     return(
     <div>
         <div className="carrusel">
-            <Menu />
-            <h1>Carrusel</h1>
 
+            <Menu />
             <ShowPrograma/>
-           
+
         </div>
 
         <div className="gridPrograma">
