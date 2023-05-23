@@ -95,7 +95,7 @@ const Show = () => {
                             </MDBRow>
                     ))}
 
-                
+                <Link to={'/create'} className="btn btn-dark flex-grow-1">Crear</Link>
                 </MDBContainer>
                 
             </div>

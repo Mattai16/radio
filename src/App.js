@@ -3,14 +3,16 @@ import React, { useState, useEffect } from "react";
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 // Components
 import Header from "./components/Header";
-import Perfiles from "./components/Perfiles";
-import Inicio from "./components/Inicio";
-import Programa from "./components/Programa";
-import Tienda from "./components/Tienda"; 
+import Perfiles from "./vistas/Perfiles";
+import Inicio from "./vistas/Inicio";
+import Programa from "./vistas/Programa";
+import Tienda from "./vistas/Tienda"; 
 import Show from "./components/Show";
 import Edit from "./components/Edit";
 import CreatePrograma from "./components/CreatePrograma";
 import EditPrograma from "./components/EditPrograma";
+import SolicitudCancion from "./components/SolicitudCancion";
+import Create from "./components/Create";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
   {
     path: '/editprograma/:id',
     element: <EditPrograma/>
+  },
+  {
+    path: '/SolicitudCancion',
+    element: <SolicitudCancion/>
+  },
+  {
+    path: '/create',
+    element: <Create/>
   },
 ])
 

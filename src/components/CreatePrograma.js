@@ -12,13 +12,16 @@ const CreatePrograma = () => {
     const [desc, setDesc] = useState('')
     const [titulo, setTitulo] = useState('')
     const [horario, setHorario] = useState('')
+    const [imagen, setImagen] = useState('')
+    const [dias, setDias] = useState('')
+    const [involucrados, setInvolucrados] = useState('')
     const navigate = useNavigate()
 
     const programaCollection = collection(db, "programas")
 
     const programs = async (e) => {
         e.preventDefault()
-        await addDoc(programaCollection, { desc: desc, titulo: titulo, horario: horario })
+        await addDoc(programaCollection, { desc: desc, titulo: titulo, horario: horario, imagen: imagen, dias: dias, involucrados: involucrados })
         navigate('/programa')
     }
 
@@ -50,6 +53,30 @@ const CreatePrograma = () => {
                     onChange = {(e)=> setHorario(e.target.value)} type="text" placeholder="Introduce el horario del programa" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>imagen</Form.Label>
+                    <Form.Control 
+                    value={imagen}
+                    onChange = {(e)=> setImagen(e.target.value)} type="text" placeholder="Introduce el url de la imagen" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>dias</Form.Label>
+                    <Form.Control 
+                    value={dias}
+                    onChange = {(e)=> setDias(e.target.value)} type="text" placeholder="Introduce los dias que se dará el programa" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>involucrados</Form.Label>
+                    <Form.Control 
+                    value={involucrados}
+                    onChange = {(e)=> setInvolucrados(e.target.value)} type="text" placeholder="Introduce el nombre del involucrado" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
 
 
                 </Form.Group>

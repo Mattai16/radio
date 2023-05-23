@@ -1,12 +1,11 @@
 import React from "react";
-import Menu from "./Menu";
-import Show from "./Show";
+import Menu from "../components/Menu";
+import Show from "../components/Show";
 
 const Perfiles = () =>{
     return(
         
         <div>
-            
             <Menu />
             <Show/>
         </div>  
