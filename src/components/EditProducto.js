@@ -74,7 +74,7 @@ const EditProducto = () => {
 
         </Form.Group>
         <button className="btn btn-dark flex-grow-1" type="submit">
-          Enviar
+          Guardar
         </button>
       </Form>
 
