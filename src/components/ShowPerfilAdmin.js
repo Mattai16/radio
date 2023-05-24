@@ -27,7 +27,7 @@ const ShowPerilAdmin = () => {
 
     const confirmDelete = (id) => {
         MySawl.fire({
-            title: 'Estas seguro de eliminar el perfil?',
+            title: '¿Estas seguro de eliminar el perfil?',
             text: "No podras recuperar los datos",
             icon: 'warning',
             showCancelButton: true,
