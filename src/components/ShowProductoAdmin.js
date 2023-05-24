@@ -29,7 +29,7 @@ const ShowProductoAdmin = () => {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, elímnalo',
+            confirmButtonText: 'Sí, elimínalo',
         }).then((result) => {
             if (result.isConfirmed) {
                 deleteProducto(id);
