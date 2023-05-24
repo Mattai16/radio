@@ -2,7 +2,6 @@ import React from "react";
 import { Carousel } from "react-bootstrap";
 import Carrusel from "../components/Carrusel";
 import Menu from "../components/Menu";
-
 import ShowPrograma from '../components/ShowPrograma'
 
 const Programa = () => {

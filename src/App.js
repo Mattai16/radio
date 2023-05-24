@@ -18,6 +18,7 @@ import ShowPerilAdmin from "./components/ShowPerfilAdmin";
 import ShowPrograma from "./components/ShowPrograma";
 import ShowProgramaAdmin from "./components/ShowProgramaAdmin";
 import ShowProductoAdmin from "./components/ShowProductoAdmin";
+import CreateProducto from "./components/CreateProducto";
 
 
 const router = createBrowserRouter([
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
   {
     path: '/create',
     element: <Create/>
+  },
+  {
+    path: '/createproducto',
+    element: <CreateProducto/>
   },
 ])
 

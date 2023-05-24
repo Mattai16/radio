@@ -30,7 +30,7 @@ const Edit = () => {
     if (perfil.exists()) {
       console.log(perfil.data())
       setNombre(perfil.data().nombre)
-      setDesc(perfil.data().data)
+      setDesc(perfil.data().desc)
       setPapel(perfil.data().papel)
     } else {
       console.log("¡!")

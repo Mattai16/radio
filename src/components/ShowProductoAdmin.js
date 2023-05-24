@@ -67,7 +67,7 @@ const ShowProductoAdmin = () => {
                                         <MDBCardText>{producto.desc}</MDBCardText>
                                         <MDBCardText>{producto.precio}</MDBCardText>
                                         <div className="d-flex justify-content-between">
-                                            <Link to={`/edit/${producto.id}`} outline className="btn btn-outline-secondary">Editar</Link>
+                                            <Link to={`/editproducto/${producto.id}`} outline className="btn btn-outline-secondary">Editar</Link>
                                             <button onClick={() => confirmDelete(producto.id)} className="btn btn-dark">Eliminar</button>
                                         </div>
                                     </MDBCardBody>
@@ -77,7 +77,7 @@ const ShowProductoAdmin = () => {
                     </MDBRow>
                     
                 </MDBContainer>
-                <Link to={'/create'} className="btn btn-dark flex-grow-1">Crear</Link>
+                <Link to={'/createproducto'} className="btn btn-dark flex-grow-1">Crear</Link>
             </div>
         </div>
     );

@@ -18,27 +18,27 @@ const EditProducto = () => {
 
   const update = async (e) => {
     e.preventDefault()
-    const perfil = doc(db, "perfiles", id)
+    const producto = doc(db, "productos", id)
     const data = { nombre: nombre, desc: desc, precio: precio }
-    await updateDoc(perfil, data)
-    navigate('/')
+    await updateDoc(producto, data)
+    navigate('/tiendaAdmin')
 
   }
 
-  const getPerfilesById = async (id) => {
-    const perfil = await getDoc((doc(db, "perfiles", id)))
-    if (perfil.exists()) {
-      console.log(perfil.data())
-      setNombre(perfil.data().nombre)
-      setDesc(perfil.data().data)
-      setPrecio(perfil.data().precio)
+  const getProductosById = async (id) => {
+    const producto = await getDoc((doc(db, "productos", id)))
+    if (producto.exists()) {
+      console.log(producto.data())
+      setNombre(producto.data().nombre)
+      setDesc(producto.data().desc)
+      setPrecio(producto.data().precio)
     } else {
       console.log("¡!")
     }
   }
 
   useEffect(() => {
-    getPerfilesById(id)
+    getProductosById(id)
   }, [])
 
   return (
@@ -84,5 +84,3 @@ const EditProducto = () => {
 }
 
 export default EditProducto
-
-

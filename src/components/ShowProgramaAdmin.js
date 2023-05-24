@@ -69,7 +69,7 @@ const ShowProgramaAdmin = () => {
                                         <MDBCardText>{programa.desc}</MDBCardText>
                                         <MDBCardText>{programa.horario}</MDBCardText>
                                         <div className="d-flex justify-content-between">
-                                            <Link to={`/edit/${programa.id}`} outline className="btn btn-outline-secondary">Editar</Link>
+                                            <Link to={`/editprograma/${programa.id}`} outline className="btn btn-outline-secondary">Editar</Link>
                                             <button onClick={() => confirmDelete(programa.id)} className="btn btn-dark">Eliminar</button>
                                         </div>
                                     </MDBCardBody>
@@ -79,7 +79,7 @@ const ShowProgramaAdmin = () => {
                     </MDBRow>
                     
                 </MDBContainer>
-                <Link to={'/create'} className="btn btn-dark flex-grow-1">Crear</Link>
+                <Link to={'/createprograma'} className="btn btn-dark flex-grow-1">Crear</Link>
             </div>
         </div>
     );
