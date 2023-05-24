@@ -19,7 +19,7 @@ const Create = () => {
     const profiles = async (e) => {
         e.preventDefault()
         await addDoc(perfilesCollection, { nombre: nombre, papel: papel, desc: desc })
-        navigate('/perfiles')
+        navigate('/perfilesAdmin')
     }
 
     return (

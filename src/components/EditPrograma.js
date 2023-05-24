@@ -6,9 +6,14 @@ import { db } from './firebaseConfig/firebase'
 import { async } from '@firebase/util'
 import { Form } from "react-bootstrap";
 import Menu from './Menu'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+const MySawl = withReactContent(Swal)
+
 
 const EditPrograma = () => {
 
+  
   const [desc, setDesc] = useState('')
   const [titulo, setTitulo] = useState('')
   const [horario, setHorario] = useState('')
@@ -18,13 +23,35 @@ const EditPrograma = () => {
 
   const navigate = useNavigate()
   const { id } = useParams()
+  
+  const cancelar = ()=>{
+    MySawl.fire({
+      title: 'Estas seguro de Cancelar?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          navigate('/ProgramaAdmin'),
+          'Cancelado!',
+          'Ha sido cancelado.',
+          'Cambios cancelados'
+        )
+      }
+    })
+
+  }
+
 
   const update = async (e) => {
     e.preventDefault()
     const programa = doc(db, "programas", id)
     const data = { desc: desc, titulo: titulo, horario: horario, imagen: imagen, dias: dias, involucrados: involucrados }
     await updateDoc(programa, data)
-    navigate('/')
+    navigate('/programaAdmin')
 
   }
 
@@ -108,9 +135,14 @@ const EditPrograma = () => {
 
            
             <button className="btn btn-dark flex-grow-1" type="submit">
-              Enviar
+              Guardar
             </button>
+
           </Form>
+          <button className="btn btn-dark flex-grow-1" onClick={cancelar}>
+              Cancelar
+            </button>
+
       </>
         )
 }

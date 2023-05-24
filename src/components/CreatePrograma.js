@@ -22,7 +22,7 @@ const CreatePrograma = () => {
     const programs = async (e) => {
         e.preventDefault()
         await addDoc(programaCollection, { desc: desc, titulo: titulo, horario: horario, imagen: imagen, dias: dias, involucrados: involucrados })
-        navigate('/programa')
+        navigate('/programaAdmin')
     }
 
     return (

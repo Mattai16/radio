@@ -21,7 +21,7 @@ const Edit = () => {
     const perfil = doc(db, "perfiles", id)
     const data = { nombre: nombre, desc: desc, papel: papel }
     await updateDoc(perfil, data)
-    navigate('/')
+    navigate('/perfilesAdmin')
 
   }
 
