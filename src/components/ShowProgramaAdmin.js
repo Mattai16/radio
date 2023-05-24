@@ -27,7 +27,7 @@ const ShowProgramaAdmin = () => {
 
     const confirmDelete = (id) => {
         MySawl.fire({
-            title: 'Estas seguro de eliminar el programa?',
+            title: '¿Estas seguro de eliminar el programa?',
             text: "No podras recuperar los datos",
             icon: 'warning',
             showCancelButton: true,
