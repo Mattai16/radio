@@ -4,58 +4,81 @@ import { collection, addDoc } from 'firebase/firestore'
 import { db } from './firebaseConfig/firebase'
 import { async } from '@firebase/util'
 import { Form } from "react-bootstrap";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content';
+import Menu from './Menu'
 
 
 
 const CreateProducto = () => {
 
     const [nombre, setNombre] = useState('')
-    const [precio, setprecio] = useState('')
+    const [precio, setPrecio] = useState('')
     const [desc, setDesc] = useState('')
     const navigate = useNavigate()
 
     const productosCollection = collection(db, "productos")
 
-    const productos = async (e) => {
+
+
+    const prod = async (e) => {
         e.preventDefault()
-        await addDoc(productosCollection, { nombre: nombre, precio: precio, desc: desc })
-        navigate('/tiendaAdmin')
+
+        if ((desc == "") || (nombre == "") || (precio == "")) {
+            Swal.fire('Campos vacios vuelve a intentarlos')
+
+        } else {
+            Swal.fire(
+                'Registrado!',
+                'El producto ha sido registrado!',
+                'success'
+            )
+            await addDoc(productosCollection, { nombre: nombre, precio: precio, desc: desc })
+            navigate('/tiendaAdmin')
+
+        }
     }
 
     return (
         <>
-            <Form onSubmit={productos}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label> Nombre</Form.Label>
-                    <Form.Control
-                    value={nombre}
-                    onChange = {(e)=> setNombre(e.target.value)}
-                     type="text" placeholder="Introduce el nombre del producto" />
-           
-                </Form.Group>
+            <Form onSubmit={prod}>
+                <div className='container'>
+                    <div class="mb-3 ">
+                        <label for="exampeFormControlInput1" class="form-label">Nombre del producto</label>
+                        <input value={nombre}
+                            onChange={(e) => setNombre(e.target.value)}
+                            type="text" class="form-control" id="exampleFormControlInput1" placeholder="introduce un nombre" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Agrrega una descripcion</label>
+                        <textarea value={desc}
+                            onChange={(e) => setDesc(e.target.value)}
+                            class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Descripción</Form.Label>
-                    <Form.Control
-                    value={desc}
-                    onChange = {(e) => setDesc(e.target.value)}
-                    type="text" placeholder="Introduce una descripción" />
+                    <div class="mb-3 ">
+                        <label for="exampeFormControlInput1" class="form-label">Precio del producto</label>
+                        <input value={precio}
+                            onChange={(e) => setPrecio(e.target.value)}
+                            type="text" class="form-control" id="exampleFormControlInput1" placeholder="Introduce solo numeros enteros" />
+                    </div>
 
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>precio</Form.Label>
-                    <Form.Control 
-                    value={precio}
-                    onChange = {(e)=> setprecio(e.target.value)} type="text" placeholder="Introduce el precio del producto" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <div className='mb-3'>
+                        <button className="btn btn-dark flex-grow-1" type="submit">
+                            Guardar
+                        </button>
+                    </div>
 
 
+<<<<<<< Updated upstream
                 </Form.Group>
                 <button className="btn btn-dark flex-grow-1" type="submit">
                     Guardar
                 </button>
+=======
+
+                </div>
+>>>>>>> Stashed changes
             </Form>
         </>
     )

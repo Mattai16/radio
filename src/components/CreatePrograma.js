@@ -4,7 +4,8 @@ import { collection, addDoc } from 'firebase/firestore'
 import { db } from './firebaseConfig/firebase'
 import { async } from '@firebase/util'
 import { Form } from "react-bootstrap";
-
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content';
 
 
 const CreatePrograma = () => {
@@ -21,69 +22,88 @@ const CreatePrograma = () => {
 
     const programs = async (e) => {
         e.preventDefault()
-        await addDoc(programaCollection, { desc: desc, titulo: titulo, horario: horario, imagen: imagen, dias: dias, involucrados: involucrados })
-        navigate('/programaAdmin')
+
+        if ((titulo == "") || (desc == "") || (horario == "") || (imagen == "") || (dias == "") || (involucrados == "")) {
+            Swal.fire('Campos vacios vuelve a intentarlos')
+
+        } else {
+            Swal.fire(
+                'Registrado!',
+                'El programa ha sido registrado!',
+                'success'
+            )
+            await addDoc(programaCollection, { desc: desc, titulo: titulo, horario: horario, imagen: imagen, dias: dias, involucrados: involucrados })
+            navigate('/programaAdmin')
+
+        }
+
     }
+
 
     return (
         <>
+            <div>
             <Form onSubmit={programs}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label> Descripcion</Form.Label>
-                    <Form.Control
-                    value={desc}
-                    onChange = {(e)=> setDesc(e.target.value)}
-                     type="text" placeholder="Introduce una descripcion" />
-           
-                </Form.Group>
+                <div className='container'>
+                    <div class="mb-3 ">
+                        <label for="exampeFormControlInput1" class="form-label">Asigna un titulo</label>
+                        <input value={titulo}
+                        onChange={(e) => setTitulo(e.target.value)}
+                            type="text" class="form-control" id="exampleFormControlInput1" placeholder="introduce un titulo" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Agrrega una descripcion</label>
+                        <textarea value={desc}
+                            onChange={(e) => setDesc(e.target.value)}
+                            class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Titulo</Form.Label>
-                    <Form.Control
-                    value={titulo}
-                    onChange = {(e) => setTitulo(e.target.value)}
-                    type="text" placeholder="Introduce un titulo para el programa" />
+                    <div class="mb-3 ">
+                        <label for="exampeFormControlInput1" class="form-label">Horario</label>
+                        <input value={horario}
+                        onChange={(e) => setHorario(e.target.value)}
+                            type="text" class="form-control" id="exampleFormControlInput1" placeholder="Establece el horario" />
+                    </div>
 
-                </Form.Group>
+                    <div class="mb-3 ">
+                        <label for="exampeFormControlInput1" class="form-label">imagen</label>
+                        <input value={imagen}
+                            onChange={(e) => setImagen(e.target.value)} 
+                            type="text" class="form-control" id="exampleFormControlInput1" placeholder="Establece un horario" />
+                    </div>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Horario</Form.Label>
-                    <Form.Control 
-                    value={horario}
-                    onChange = {(e)=> setHorario(e.target.value)} type="text" placeholder="Introduce el horario del programa" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <div class="mb-3 ">
+                        <label for="exampeFormControlInput1" class="form-label">imagen</label>
+                        <input value={imagen}
+                            onChange={(e) => setImagen(e.target.value)} 
+                            type="text" class="form-control" id="exampleFormControlInput1" placeholder="Establece una imagen" />
+                    </div>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>imagen</Form.Label>
-                    <Form.Control 
-                    value={imagen}
-                    onChange = {(e)=> setImagen(e.target.value)} type="text" placeholder="Introduce el url de la imagen" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
+                    <div class="mb-3 ">
+                        <label for="exampeFormControlInput1" class="form-label">Díás</label>
+                        <input value={dias}
+                            onChange={(e) => setDias(e.target.value)}
+                            type="text" class="form-control" id="exampleFormControlInput1" placeholder="Introduce los días en los que se presentara" />
+                    </div>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>dias</Form.Label>
-                    <Form.Control 
-                    value={dias}
-                    onChange = {(e)=> setDias(e.target.value)} type="text" placeholder="Introduce los dias que se dará el programa" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
+                    <div class="mb-3 ">
+                        <label for="exampeFormControlInput1" class="form-label">Involucrados</label>
+                        <input value={involucrados}
+                            onChange={(e) => setInvolucrados(e.target.value)}
+                            type="text" class="form-control" id="exampleFormControlInput1" placeholder="Menciona los participantes" />
+                    </div>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>involucrados</Form.Label>
-                    <Form.Control 
-                    value={involucrados}
-                    onChange = {(e)=> setInvolucrados(e.target.value)} type="text" placeholder="Introduce el nombre del involucrado" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
+                    <div className='mb-3'>
+                        <button className="btn btn-dark flex-grow-1" type="submit">
+                            Guardar
+                        </button>
+                    </div>
 
 
-                </Form.Group>
-                <button className="btn btn-dark flex-grow-1" type="submit">
-                    Guardar
-                </button>
+
+                </div>
             </Form>
+            </div>
         </>
     )
 }
