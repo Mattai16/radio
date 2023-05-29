@@ -6,7 +6,7 @@ import { async } from '@firebase/util'
 import { Form } from "react-bootstrap";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-
+const MySawl = withReactContent(Swal)
 
 
 const Create = () => {
@@ -37,6 +37,27 @@ const Create = () => {
         }
 
     }
+
+    const cancelar = ()=>{
+        MySawl.fire({
+          title: 'Estas seguro de Cancelar?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sí'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              navigate('/perfilesAdmin'),
+              'Cancelado!',
+              'Ha sido cancelado.',
+              'Cambios cancelados'
+            )
+          }
+        })
+    
+      }
 
     return (
         <>
@@ -72,6 +93,9 @@ const Create = () => {
 
                 </div>
             </Form>
+            <button className="btn btn-dark flex-grow-1" onClick={cancelar}>
+                    Cancelar
+                     </button>
         </>
     )
 }

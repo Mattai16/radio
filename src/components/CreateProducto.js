@@ -7,6 +7,7 @@ import { Form } from "react-bootstrap";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content';
 import Menu from './Menu'
+const MySawl = withReactContent(Swal)
 
 
 
@@ -39,6 +40,28 @@ const CreateProducto = () => {
         }
     }
 
+    const cancelar = ()=>{
+        MySawl.fire({
+          title: 'Estas seguro de Cancelar?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sí'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              navigate('/tiendaAdmin'),
+              'Cancelado!',
+              'Ha sido cancelado.',
+              'Cambios cancelados'
+            )
+          }
+        })
+    
+      }
+
+
     return (
         <>
             <Form onSubmit={prod}>
@@ -70,17 +93,13 @@ const CreateProducto = () => {
                     </div>
 
 
-<<<<<<< Updated upstream
-                </Form.Group>
-                <button className="btn btn-dark flex-grow-1" type="submit">
-                    Guardar
-                </button>
-=======
 
                 </div>
->>>>>>> Stashed changes
             </Form>
-        </>
+            <button className="btn btn-dark flex-grow-1" onClick={cancelar}>
+                    Cancelar
+                     </button>
+                             </>
     )
 }
 
