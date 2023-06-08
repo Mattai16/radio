@@ -73,7 +73,7 @@ const CreatePrograma = () => {
                             type="text" class="form-control" id="exampleFormControlInput1" placeholder="introduce un titulo" />
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Agrrega una descripcion</label>
+                        <label for="exampleFormControlTextarea1" class="form-label">Agrega una descripcion</label>
                         <textarea value={desc}
                             onChange={(e) => setDesc(e.target.value)}
                             class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -87,7 +87,7 @@ const CreatePrograma = () => {
                     </div>
 
                     <div class="mb-3 ">
-                        <label for="exampeFormControlInput1" class="form-label">imagen</label>
+                        <label for="exampeFormControlInput1" class="form-label">Imagen</label>
                         <input value={imagen}
                             onChange={(e) => setImagen(e.target.value)} 
                             type="text" class="form-control" id="exampleFormControlInput1" placeholder="Establece un horario" />
@@ -95,17 +95,17 @@ const CreatePrograma = () => {
 
 
                     <div class="mb-3 ">
-                        <label for="exampeFormControlInput1" class="form-label">Díás</label>
+                        <label for="exampeFormControlInput1" class="form-label">Días</label>
                         <input value={dias}
                             onChange={(e) => setDias(e.target.value)}
-                            type="text" class="form-control" id="exampleFormControlInput1" placeholder="Introduce los días en los que se presentara" />
+                            type="text" class="form-control" id="exampleFormControlInput1" placeholder="Introduce los días en los que se presentará" />
                     </div>
 
                     <div class="mb-3 ">
                         <label for="exampeFormControlInput1" class="form-label">Involucrados</label>
                         <input value={involucrados}
                             onChange={(e) => setInvolucrados(e.target.value)}
-                            type="text" class="form-control" id="exampleFormControlInput1" placeholder="Menciona los participantes" />
+                            type="text" class="form-control" id="exampleFormControlInput1" placeholder="Menciona a los participantes" />
                     </div>
 
                     <div className='mb-3'>
