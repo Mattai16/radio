@@ -21,12 +21,19 @@ const Edit = () => {
 
   const update = async (e) => {
     e.preventDefault()
+    
+    if ((nombre == "") || (desc == "") || (papel == "")) {
+      Swal.fire('Campos vacios vuelve a intentarlos')
+
+  }
+  else {
     const perfil = doc(db, "perfiles", id)
     const data = { nombre: nombre, desc: desc, papel: papel }
     await updateDoc(perfil, data)
     navigate('/perfilesAdmin')
 
   }
+}
 
   const getPerfilesById = async (id) => {
     const perfil = await getDoc((doc(db, "perfiles", id)))

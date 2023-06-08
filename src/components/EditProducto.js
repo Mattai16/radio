@@ -21,12 +21,19 @@ const EditProducto = () => {
 
   const update = async (e) => {
     e.preventDefault()
+    
+    if ((desc == "") || (nombre == "") || (precio == "")) {
+      Swal.fire('Campos vacios vuelve a intentarlos')
+
+  } else {
+
     const producto = doc(db, "productos", id)
     const data = { nombre: nombre, desc: desc, precio: precio }
     await updateDoc(producto, data)
     navigate('/tiendaAdmin')
 
   }
+}
 
   const getProductosById = async (id) => {
     const producto = await getDoc((doc(db, "productos", id)))

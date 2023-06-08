@@ -48,11 +48,16 @@ const EditPrograma = () => {
 
   const update = async (e) => {
     e.preventDefault()
+   
+    if ((titulo == "") || (desc == "") || (horario == "") || (imagen == "") || (dias == "") || (involucrados == "")) {
+      Swal.fire('Campos vacios vuelve a intentarlos')
+
+  } else {
     const programa = doc(db, "programas", id)
     const data = { desc: desc, titulo: titulo, horario: horario, imagen: imagen, dias: dias, involucrados: involucrados }
     await updateDoc(programa, data)
     navigate('/programaAdmin')
-
+  }
   }
 
   const getProgramaById = async (id) => {
