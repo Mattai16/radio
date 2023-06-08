@@ -40,26 +40,26 @@ const CreateProducto = () => {
         }
     }
 
-    const cancelar = ()=>{
+    const cancelar = () => {
         MySawl.fire({
-          title: 'Estas seguro de Cancelar?',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Sí'
+            title: 'Estas seguro de Cancelar?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí'
         }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire(
-              navigate('/tiendaAdmin'),
-              'Cancelado!',
-              'Ha sido cancelado.',
-              'Cambios cancelados'
-            )
-          }
+            if (result.isConfirmed) {
+                Swal.fire(
+                    navigate('/tiendaAdmin'),
+                    'Cancelado!',
+                    'Ha sido cancelado.',
+                    'Cambios cancelados'
+                )
+            }
         })
-    
-      }
+
+    }
 
 
     return (
@@ -94,12 +94,16 @@ const CreateProducto = () => {
 
 
 
+
                 </div>
+
+
+
             </Form>
             <button className="btn btn-dark flex-grow-1" onClick={cancelar}>
-                    Cancelar
-                     </button>
-                             </>
+                Cancelar
+            </button>
+        </>
     )
 }
 

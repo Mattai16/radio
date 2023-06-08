@@ -99,7 +99,7 @@ const EditPrograma = () => {
           <Form.Control
             value={titulo}
             onChange={(e) => setTitulo(e.target.value)}
-            type="text" placeholder="Introduce un Titulo" />
+            type="text" placeholder="Introduce un Titulo" required/>
 
         </Form.Group>
 
