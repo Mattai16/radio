@@ -77,7 +77,7 @@ const Create = () => {
                     </div>
 
                     <div class="mb-3 ">
-                        <label for="exampeFormControlInput1" class="form-label">Nombre del perfil</label>
+                        <label for="exampeFormControlInput1" class="form-label">Papel</label>
                         <input value={papel}
                             onChange={(e) => setPapel(e.target.value)}
                             type="text" class="form-control" id="exampleFormControlInput1" placeholder="Introduce el papel Locutor o Dj" />
