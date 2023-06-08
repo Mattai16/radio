@@ -87,7 +87,7 @@ const EditPrograma = () => {
       <Form onSubmit={update}>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label> Descripcion</Form.Label>
+          <Form.Label> Descripción</Form.Label>
           <Form.Control
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
@@ -95,7 +95,7 @@ const EditPrograma = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Titulo</Form.Label>
+          <Form.Label>Título</Form.Label>
           <Form.Control
             value={titulo}
             onChange={(e) => setTitulo(e.target.value)}
@@ -121,7 +121,7 @@ const EditPrograma = () => {
      
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Dias</Form.Label>
+            <Form.Label>Días</Form.Label>
             <Form.Control
               value={dias}
               onChange={(e) => setDias(e.target.value)} type="text" placeholder="Introduce el dia del programa" />
@@ -129,7 +129,7 @@ const EditPrograma = () => {
           
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>involucrado</Form.Label>
+              <Form.Label>Involucrado</Form.Label>
               <Form.Control
                 value={involucrados}
                 onChange={(e) => setInvolucrados(e.target.value)} type="text" placeholder="Introduce a la persona involucrada" />
