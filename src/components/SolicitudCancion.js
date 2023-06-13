@@ -39,19 +39,15 @@ const SolicitudCancion = () => {
     e.preventDefault();
 
     if (!navigator.onLine) {
-      Swal.fire('Error', 'No hay conexión a Internet', 'error');
-      return;
-    }
-
-    try {
-      // Verificar la conexión a la base de datos
-      await db.getFirestore().ping();
-    } catch (error) {
-      Swal.fire('Error', 'No se pudo establecer conexión con la base de datos', 'error');
-      return;
-    }
-
-    if (titulo === '' || artista === '') {
+      try {
+        // Verificar la conexión a la base de datos
+        await db.getFirestore().ping();
+      } catch (error) {
+        Swal.fire('Error', 'No se pudo establecer conexión con la base de datos', 'error');
+        return;
+      }
+  
+    }else if (titulo === '' || artista === '') {
       Swal.fire('Campos vacíos, vuelve a intentarlo');
     } else {
       Swal.fire('Registrado!', 'Canción registrada!', 'success');
