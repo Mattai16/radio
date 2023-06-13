@@ -25,7 +25,15 @@ const CreateProducto = () => {
     const prod = async (e) => {
         e.preventDefault()
 
-        if ((desc == "") || (nombre == "") || (precio == "")) {
+        try {
+            // Verificar la conexión a la base de datos
+            await db.getFirestore().collection('test').get()
+        } catch (error) {
+            Swal.fire('Error', 'No se pudo establecer conexión con la base de datos', 'error')
+            return
+        }
+
+        if((desc == "") || (nombre == "") || (precio == "")) {
             Swal.fire('Campos vacios vuelve a intentarlos')
 
         } else {
