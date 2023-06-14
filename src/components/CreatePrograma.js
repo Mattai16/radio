@@ -41,7 +41,7 @@ const CreatePrograma = () => {
     ) {
       Swal.fire('Campos vacios, vuelve a intentarlo');
     } else {
-      Swal.fire('Registrado!', 'El programa ha sido registrado!', 'success');
+      Swal.fire('¡Registrado!', '¡El programa ha sido registrado!', 'success');
       await addDoc(programaCollection, {
         desc: desc,
         titulo: titulo,
@@ -56,7 +56,7 @@ const CreatePrograma = () => {
 
   const cancelar = () => {
     MySwal.fire({
-      title: 'Estás seguro de Cancelar?',
+      title: '¿Estás seguro de Cancelar?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -147,9 +147,13 @@ const CreatePrograma = () => {
                 aria-label="Default select example"
               >
                 <option value="">Selecciona el día</option>
+                <option value="Domingo">Domingo</option>
                 <option value="Lunes">Lunes</option>
                 <option value="Martes">Martes</option>
                 <option value="Miércoles">Miércoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+                <option value="Sábado">Sábado</option>
               </select>
             </div>
 
