@@ -36,8 +36,8 @@ const Create = () => {
         }
         else {
             Swal.fire(
-                'Registrado!',
-                'El perfil ha sido registrado!',
+                '¡Registrado!',
+                '¡El perfil ha sido registrado!',
                 'success'
             )
             await addDoc(perfilesCollection, { nombre: nombre, papel: papel, desc: desc })
@@ -49,7 +49,7 @@ const Create = () => {
 
     const cancelar = ()=>{
         MySawl.fire({
-          title: 'Estas seguro de Cancelar?',
+          title: '¿Estas seguro de Cancelar?',
           icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
