@@ -21,7 +21,16 @@ const Create = () => {
     const profiles = async (e) => {
         e.preventDefault()
 
-        if ((nombre == "") || (desc == "") || (papel == "")) {
+        if (!navigator.onLine) {
+            try {
+              // Verificar la conexión a la base de datos
+              await db.getFirestore().ping();
+            } catch (error) {
+              Swal.fire('Error', 'No se pudo establecer conexión con la base de datos', 'error');
+              return;
+            }
+        
+          }else if ((nombre == "") || (desc == "") || (papel == "")) {
             Swal.fire('Campos vacios vuelve a intentarlos')
 
         }

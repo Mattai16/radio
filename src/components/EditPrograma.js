@@ -48,8 +48,16 @@ const EditPrograma = () => {
 
   const update = async (e) => {
     e.preventDefault()
-   
-    if ((titulo == "") || (desc == "") || (horario == "") || (imagen == "") || (dias == "") || (involucrados == "")) {
+    if (!navigator.onLine) {
+      try {
+        // Verificar la conexión a la base de datos
+        await db.getFirestore().ping();
+      } catch (error) {
+        Swal.fire('Error', 'No se pudo establecer conexión con la base de datos', 'error');
+        return;
+      }
+  
+    }else if ((titulo == "") || (desc == "") || (horario == "") || (imagen == "") || (dias == "") || (involucrados == "")) {
       Swal.fire('Campos vacios vuelve a intentarlos')
 
   } else {

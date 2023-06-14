@@ -25,15 +25,16 @@ const CreateProducto = () => {
     const prod = async (e) => {
         e.preventDefault()
 
-        try {
-            // Verificar la conexión a la base de datos
-            await db.getFirestore().collection('test').get()
-        } catch (error) {
-            Swal.fire('Error', 'No se pudo establecer conexión con la base de datos', 'error')
-            return
-        }
-
-        if((desc == "") || (nombre == "") || (precio == "")) {
+        if (!navigator.onLine) {
+            try {
+              // Verificar la conexión a la base de datos
+              await db.getFirestore().ping();
+            } catch (error) {
+              Swal.fire('Error', 'No se pudo establecer conexión con la base de datos', 'error');
+              return;
+            }
+        
+          }else if((desc == "") || (nombre == "") || (precio == "")) {
             Swal.fire('Campos vacios vuelve a intentarlos')
 
         } else {
