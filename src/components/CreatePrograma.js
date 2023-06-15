@@ -66,7 +66,7 @@ const CreatePrograma = () => {
       if (result.isConfirmed) {
         Swal.fire(
           navigate('/ProgramaAdmin'),
-          'Cancelado!',
+          '¡Cancelado!',
           'Ha sido cancelado.',
           'Cambios cancelados'
         );
@@ -116,9 +116,12 @@ const CreatePrograma = () => {
                 aria-label="Default select example"
               >
                 <option value="">Selecciona el horario</option>
-                <option value="10:00 AM">10:00 AM</option>
-                <option value="2:00 PM">2:00 PM</option>
-                <option value="6:00 PM">6:00 PM</option>
+                <option value="08:00 AM">08:00 AM</option>
+                <option value="10:00 PM">10:00 PM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="3:00 PM">3:00 PM</option>
+                <option value="5:00 PM">5:00 PM</option>
+                <option value="7:00 PM">7:00 PM</option>
               </select>
             </div>
 
