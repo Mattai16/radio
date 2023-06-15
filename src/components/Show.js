@@ -15,8 +15,19 @@ const Show = () => {
   const perfilesCollection = collection(db, 'perfiles');
 
   const getPerfiles = async () => {
-    const data = await getDocs(perfilesCollection);
+    if (navigator.onLine) {
+      const data = await getDocs(perfilesCollection);
     setPerfiles(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    }else {
+    try {
+      // Verificar la conexión a la base de datos
+      await db.getFirestore().ping();
+    } catch (error) {
+      Swal.fire('Error', 'No se pudo establecer conexión con la base de datos', 'error');
+      return;
+    }
+  }
+    
   };
 
   const confirmDelete = (id) => {

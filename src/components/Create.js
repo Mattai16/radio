@@ -21,14 +21,23 @@ const Create = () => {
     const profiles = async (e) => {
         e.preventDefault()
 
-        if ((nombre == "") || (desc == "") || (papel == "")) {
+        if (!navigator.onLine) {
+            try {
+              // Verificar la conexión a la base de datos
+              await db.getFirestore().ping();
+            } catch (error) {
+              Swal.fire('Error', 'No se pudo establecer conexión con la base de datos', 'error');
+              return;
+            }
+        
+          }else if ((nombre == "") || (desc == "") || (papel == "")) {
             Swal.fire('Campos vacios vuelve a intentarlos')
 
         }
         else {
             Swal.fire(
-                'Registrado!',
-                'El perfil ha sido registrado!',
+                '¡Registrado!',
+                '¡El perfil ha sido registrado!',
                 'success'
             )
             await addDoc(perfilesCollection, { nombre: nombre, papel: papel, desc: desc })
@@ -40,7 +49,7 @@ const Create = () => {
 
     const cancelar = ()=>{
         MySawl.fire({
-          title: 'Estas seguro de Cancelar?',
+          title: '¿Estas seguro de Cancelar?',
           icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
@@ -77,7 +86,7 @@ const Create = () => {
                     </div>
 
                     <div class="mb-3 ">
-                        <label for="exampeFormControlInput1" class="form-label">Nombre del perfil</label>
+                        <label for="exampeFormControlInput1" class="form-label">Papel</label>
                         <input value={papel}
                             onChange={(e) => setPapel(e.target.value)}
                             type="text" class="form-control" id="exampleFormControlInput1" placeholder="Introduce el papel Locutor o Dj" />

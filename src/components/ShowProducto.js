@@ -16,8 +16,19 @@ const ShowProducto = () => {
   const productosCollection = collection(db, 'productos');
 
   const getProductos = async () => {
-    const data = await getDocs(productosCollection);
-    setProductos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    if (navigator.onLine) {
+      const data = await getDocs(productosCollection);
+      setProductos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    }else {
+    try {
+      // Verificar la conexión a la base de datos
+      await db.getFirestore().ping();
+    } catch (error) {
+      Swal.fire('Error', 'No se pudo establecer conexión con la base de datos', 'error');
+      return;
+    }
+  }
+    
   };
 
   const confirmDelete = (id) => {
