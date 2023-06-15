@@ -133,6 +133,26 @@ const EditPrograma = () => {
             <Form.Control
               value={dias}
               onChange={(e) => setDias(e.target.value)} type="text" placeholder="Introduce el dia del programa" />
+            <div className="mb-3">
+              <label htmlFor="exampeFormControlInput1" className="form-label">
+                Día
+              </label>
+              <select
+                value={dia}
+                onChange={(e) => setDia(e.target.value)}
+                className="form-select"
+                aria-label="Default select example"
+              >
+                <option value="">Selecciona el día</option>
+                <option value="Domingo">Domingo</option>
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miércoles">Miércoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+                <option value="Sábado">Sábado</option>
+              </select>
+            </div>
           </Form.Group>
           
 
