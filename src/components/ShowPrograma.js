@@ -73,7 +73,7 @@ const ShowPrograma = () => {
                 <MDBCardBody>
                   <MDBCardTitle>{programa.titulo}</MDBCardTitle>
                   <MDBCardText>{programa.desc}</MDBCardText>
-                  <MDBCardText>{programa.horario}</MDBCardText>
+                  <MDBCardText>{programa.dias+" a las "+programa.horario}</MDBCardText>
                   <div className="d-flex justify-content-between">
                     {/* <Link to={`/edit/${Programa.id}`} outline className="btn btn-outline-secondary">Editar</Link> */}
                     {/* <button onClick={() => confirmDelete(Programa.id)} className="btn btn-dark">Eliminar</button> */}
